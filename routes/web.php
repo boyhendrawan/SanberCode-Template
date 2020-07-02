@@ -27,3 +27,15 @@ Route::get('/data-tables',function()
 {
 	return view("tugas.dataTable");
 });
+
+
+
+// CRUD 
+
+Route::get('/pertanyaan/create','pertanyaanController@create');
+Route::get('/pertanyaan','pertanyaanController@index')->name('home_pertanyaan');
+Route::post('/pertanyaan','pertanyaanController@store')->name('create');
+
+Route::get('/jawabban/{id}','jawabbanController@index');
+Route::get('/jawabban/create/{id}','jawabbanController@create');
+Route::post('/jawabban','jawabbanController@store')->name('create_jawab');
