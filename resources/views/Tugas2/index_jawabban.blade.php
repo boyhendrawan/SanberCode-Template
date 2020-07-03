@@ -1,17 +1,20 @@
 @extends("AdminLte.master")
 
-
+@section('title')
+Tanya Jawab 
+@endsection
 @section("content")
-<div class="card text-center">
-	<div class="card-header">
-		<b>Pertanyaan </b>
-	</div>
-	<div class="card-body">
-		<h3 class="card-text text-center"><b>{{$file->judul}}</b></h3>
-		<p class="card-text">{{$file->isi}}</p>
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1">{{$file->judul}}</h4>
+     <small><strong>Tanggal Update</strong>  :{{$file->updated_at}}</small>
+    </div>
+      <hr style="background-color: white">
+    <h5 class="mb-1">{{$file->isi}}</h5>
+    <small><strong>Dibuat Tanggal</strong>:  {{$file->created_at}}</small>
+  </a>
 
-		
-	</div>
 </div>
 
 
@@ -26,7 +29,7 @@
 				@endif
 <div class="card">
 	<div class="card-body">
-		 <table id="example2" class="table table-bordered table-hover text-center">
+		 <table id="example2" class="table table-bordered table-hover ">
 			<thead>
 				<tr>
 					<th>Jawabban</th>
@@ -45,16 +48,15 @@
 </div>
 
 <div class="card card-primary">
-	<div class="card-header text-center"><b>Form Jawabban </b> </div>
+	<div class="card-header "><b> Jawabban Kamu </b> </div>
 	<form action="/jawabban/{{$file->id}}" method="post">
 		@csrf
 		<div class="card-body">
 			<div class="form-group">
-				<label for="judul">Jawab</label>
-				<input type="text" name="isi" class="form-control" placeholder="Masukkan Jawabban Anda">
+				<textarea name="isi" rows="3" class ="form-control" placeholder="Masukkan Jawabban Anda" ></textarea>
 			</div>
 			<input type="hidden" name="pertanyaan_id" value="{{$file->id}}">
-			<div class="card-footer text-center" style="background-color: white">	
+			<div class="card-footer" style="background-color: white">	
 				<button class="btn btn-success">Kirim</button>
 				<a href="{{route('home_pertanyaan')}}" class="btn btn-danger my-2"> Back</a>
 			</div>

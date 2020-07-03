@@ -4,24 +4,22 @@
 Detail Pertanyaan & Jawabban 
 @endsection
 @section("content")
-<div class="card">
-	<div class="card-header">
-		<h4 class="text-center">Pertanyaan</h4>
-	</div>
-	<div class="card-body">
-		<ul class="list-group">
-		  <li class="list-group-item" aria-disabled="true"><h5 class="text-center">{{$pertanyaan->judul}}</h5></li>
-		  <li class="list-group-item"><strong>Pertanyaan</strong>:   {{$pertanyaan->isi}}</li>
-		  <li class="list-group-item"><strong>Created at</strong>:   {{$pertanyaan->created_at}}</li>
-		  <li class="list-group-item"><strong>updated at </strong>:  {{$pertanyaan->updated_at}}</li>
-		</ul>
-	</div>
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+    <div class="d-flex w-100 justify-content-between">
+      <h4 class="mb-1">{{$pertanyaan->judul}}</h4>
+     <small><strong>Tanggal Update</strong>  :{{$pertanyaan->updated_at}}</small>
+    </div>
+      <hr style="background-color: white">
+    <h5 class="mb-1">{{$pertanyaan->isi}}</h5>
+    <small><strong>Dibuat Tanggal</strong>:  {{$pertanyaan->created_at}}</small>
+  </a>
+
 </div>
 
-
 <div class="card">
 	<div class="card-body">
-		 <table id="example2" class="table table-bordered table-hover text-center">
+		<table id="example2" class="table table-bordered table-hover">
 			<thead>
 				<tr>
 					<th>Jawabban</th>
@@ -31,8 +29,8 @@ Detail Pertanyaan & Jawabban
 				@foreach($jawabban as $exe)
 				<tr>
 					<td>{{$exe->isi}}</td>
-				
-				@endforeach
+
+					@endforeach
 				</tr>
 			</tbody>
 		</table>
@@ -47,17 +45,17 @@ Detail Pertanyaan & Jawabban
 <script src="{{asset('assets/plugins/datatables/jquery.dataTables.js')}}"></script>
 <script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.js')}}"></script>
 <script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-    });
-  });
+	$(function () {
+		$("#example1").DataTable();
+		$('#example2').DataTable({
+			"paging": true,
+			"lengthChange": false,
+			"searching": false,
+			"ordering": true,
+			"info": true,
+			"autoWidth": false,
+		});
+	});
 </script>
 
 @endpush
