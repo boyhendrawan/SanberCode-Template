@@ -21,10 +21,11 @@
 		<div class="card-body">
 			<div class="form-group">
 				<label for="judul">Jawab</label>
-				<input type="text" name="isi" class="form-control" placeholder="Masukkan Jawabban Anda">
+				<input type="text" name="isi" class="form-control" placeholder="Masukkan Jawabban Anda" required >
 			</div>
 			<input type="hidden" name="pertanyaan_id" value="{{$file->id}}">
 			<button class="btn btn-success">Kirim</button>
+			<a href="{{route('home_pertanyaan')}}" class="btn btn-danger my-2"> Back</a>
 		</div>
 	</form>
 </div>

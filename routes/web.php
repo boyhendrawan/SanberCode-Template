@@ -35,7 +35,11 @@ Route::get('/data-tables',function()
 Route::get('/pertanyaan/create','pertanyaanController@create');
 Route::get('/pertanyaan','pertanyaanController@index')->name('home_pertanyaan');
 Route::post('/pertanyaan','pertanyaanController@store')->name('create');
+Route::get("/pertanyaan/show/{id}","pertanyaanController@show");
+Route::get('/pertanyaan/{id}/edit',"pertanyaanController@edit");
+Route::put('/pertanyaan/{id}','pertanyaanController@update') ->name('update');
+Route::delete('/pertanyaan/{id}/delete','pertanyaanController@destroy');
+
 
 Route::get('/jawabban/{id}','jawabbanController@index');
-Route::get('/jawabban/create/{id}','jawabbanController@create');
-Route::post('/jawabban','jawabbanController@store')->name('create_jawab');
+Route::post('/jawabban/{id}','jawabbanController@store');

@@ -27,11 +27,13 @@ class jawabbanController extends Controller
         unset($data["_token"]);
 
         $id=$data['pertanyaan_id'];
-
+        $data['created_at'] =now();
+        $data['updated_at'] =now();
         $simpan=jawabbanModel::simpan($data);
+      
     	if($simpan)
         {
-            return redirect("/jawabban/$id");
+            return redirect("/jawabban/$id")->with("jawabban","jawabban telah di tambah");
         }
 
 

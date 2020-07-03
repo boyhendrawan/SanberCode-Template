@@ -17,7 +17,7 @@ class CreateTableJawabban extends Migration
             $table->bigIncrements("id");
             $table->text('isi');
             $table->unsignedBigInteger('pertanyaan_id');
-            $table->foreign('pertanyaan_id')->references('id')->on('table_pertanyaan');
+            $table->foreign('pertanyaan_id')->references('id')->on('table_pertanyaan')->onDelete('cascade');
             $table->timestamps();
         });
     }
